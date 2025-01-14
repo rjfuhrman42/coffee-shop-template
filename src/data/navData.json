@@ -4,15 +4,15 @@
     "url": "/"
   },
   {
+    "key": "Menu",
+    "url": "/menu/"
+  },
+  {
     "key": "About Us",
     "url": "/about/"
   },
   {
-    "key": "Projects",
-    "url": "/projects/"
-  },
-  {
-    "key": "Reviews",
-    "url": "/reviews/"
+    "key": "Contact",
+    "url": "/contact/"
   }
 ]
