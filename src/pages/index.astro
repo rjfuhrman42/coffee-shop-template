@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import "@fontsource-variable/karla";
 import CTA from "../components/CTA.astro";
 
 // Optimize our landing image and pass it as props to the BaseLayout (for preloading) and Landing (for rendering)
@@ -47,8 +48,6 @@ const optimizedImage = await getOptimizedImage(landingImage);
       />
     </picture>
   </section>
-
-  <CTA />
 </BaseLayout>
 
 <style lang="less">
@@ -61,7 +60,8 @@ const optimizedImage = await getOptimizedImage(landingImage);
   /* Mobile - 360px */
   @media only screen and (min-width: 0em) {
     #hero {
-      font-family: "Roboto", "Arial", sans-serif;
+      font-family: "Karla Variable", sans-serif;
+
       /* Centers button */
       text-align: center;
       /* changes on tablet */
@@ -110,6 +110,8 @@ const optimizedImage = await getOptimizedImage(landingImage);
       }
 
       .cs-container {
+        display: flex;
+        justify-content: center;
         width: 100%;
         max-width: (1280/16em);
         margin: auto;

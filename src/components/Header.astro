@@ -1,6 +1,5 @@
 ---
 import navData from "../data/navData.json";
-import DarkModeToggle from "./DarkModeToggle.astro";
 ---
 
 <!-- ============================================ --><!--                 Navigation                   --><!-- ============================================ -->
@@ -56,7 +55,7 @@ import DarkModeToggle from "./DarkModeToggle.astro";
     </nav>
     <a href="/contact" class="cs-button-solid cs-nav-button">Order</a>
     <!--Dark Mode toggle, uncomment button code if you want to enable a dark mode toggle-->
-    <DarkModeToggle />
+    <!-- <DarkModeToggle /> -->
   </div>
 </header>
 
@@ -75,7 +74,6 @@ import DarkModeToggle from "./DarkModeToggle.astro";
 
     #cs-navigation {
       /* remove the font family so the Stitch inherits the fonts from your global stylesheet */
-      font-family: "Roboto", "Arial", sans-serif;
       width: 100%;
       /* prevents padding from affecting height and width */
       box-sizing: border-box;
@@ -380,7 +378,6 @@ import DarkModeToggle from "./DarkModeToggle.astro";
   @media only screen and (min-width: 64rem) {
     #cs-navigation {
       /* remove the font family so the Stitch inherits the fonts from your global stylesheet */
-      font-family: "Roboto", "Arial", sans-serif;
       width: 100%;
       /* prevents padding from affecting height and width */
       box-sizing: border-box;
@@ -444,7 +441,7 @@ import DarkModeToggle from "./DarkModeToggle.astro";
 
       .cs-li-link {
         /* 14px - 16px */
-        font-size: clamp(0.875rem, 1vw, 1rem);
+        font-size: clamp(1rem, 1vw, 1.25rem);
         line-height: 1.5em;
         text-decoration: none;
         margin: 0;
