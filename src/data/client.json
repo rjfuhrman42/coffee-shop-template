@@ -1,14 +1,14 @@
 {
 	"name": "Robusta Coffee",
-	"email": "help@codestitch.app",
-	"phoneForTel": "555-779-4407",
-	"phoneFormatted": "(555) 779-4407",
+	"email": "hey@robustacoffee.com",
+	"phoneForTel": "555-555-3223",
+	"phoneFormatted": "(555) 555-3223",
 	"address": {
 		"lineOne": "First Address Line",
 		"lineTwo": "Second Address Line",
-		"city": "Denver",
-		"state": "CO",
-		"zip": "80206",
+		"city": "Brooklyn",
+		"state": "NY",
+		"zip": "11220",
 		"mapLink": "https://goo.gl/maps/UAQn4vuGDiwv7DV39"
 	},
 	"domain": "www.codestitch.app"
