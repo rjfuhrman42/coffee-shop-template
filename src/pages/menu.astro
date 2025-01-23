@@ -4,10 +4,11 @@ import client from "../data/client.json";
 
 // Optimize our landing image and pass it as props to the BaseLayout (for preloading) and Landing (for rendering)
 import { getOptimizedImage } from "../js/utils";
+import landingImage from "../assets/images/landing.webp"; // <-- THE PATH TO THE ASSET YOU WANT TO PRELOAD - The asset must live in src
 import { Picture } from "astro:assets";
-import contactImage from "../assets/images/contact.webp";
+import menuImage from "../assets/images/menu.webp";
 import Landing from "../components/Landing.astro";
-const optimizedImage = await getOptimizedImage(contactImage);
+const optimizedImage = await getOptimizedImage(landingImage);
 ---
 
 <BaseLayout
@@ -15,58 +16,18 @@ const optimizedImage = await getOptimizedImage(contactImage);
   description="Meta description for the page"
   preloadedImage={optimizedImage}
 >
-  <Landing title="Contact Us" image={optimizedImage} />
+  <Landing title="Our Menu" image={optimizedImage} />
   <!-- ============================================ -->
   <!--                Contact Form                  -->
   <!-- ============================================ -->
 
-  <section id="cs-contact">
+  <section id="cs-menu">
     <div class="cs-container">
-      <div class="cs-left-section">
-        <!--Email-->
-        <span class="cs-header">Email</span>
-        <a class="cs-link" href={`mailto:${client.email}`}>{client.email}</a>
-        <!--Phone-->
-        <span class="cs-header">Phone</span>
-        <a class="cs-link" href={`tel:${client.phoneForTel}`}
-          >{client.phoneFormatted}</a
-        >
-        <!--Address-->
-        <span class="cs-header">Address</span>
-        <a class="cs-link" href={client.address.mapLink}>
-          {client.address.lineOne},
-          <br />
-          {client.address.lineTwo},
-          <br />
-          <span class="cs-block">
-            {client.address.city}
-            {client.address.state}
-            {client.address.zip}
-          </span>
-        </a>
-
-        <!-- Background Image-->
-        <!-- <picture class="cs-bg-picture">
-          <source
-            media="(min-width: 601px)"
-            srcset="/assets/images/skyscraper.jpg"
-          />
-          <img
-            aria-hidden="true"
-            decoding="async"
-            src="/assets/images/skyscraper.jpg"
-            alt="building"
-            loading="lazy"
-            width="2500"
-            height="1667"
-          />
-        </picture> -->
-      </div>
       <Picture
-        class="contact-image"
-        src={contactImage}
-        alt="A description of my image."
-        pictureAttributes={{}}
+        id="menu-image"
+        src={menuImage}
+        formats={["webp"]}
+        alt="A coffee menu"
       />
     </div>
   </section>
@@ -92,10 +53,19 @@ const optimizedImage = await getOptimizedImage(contactImage);
       --sectionPadding: clamp(3.75em, 7.82vw, 6.25em) 1rem;
     }
 
-    #cs-contact {
+    #cs-menu {
       font-family: "Roboto", "Arial", sans-serif;
       padding: var(--sectionPadding);
       position: relative;
+      display: flex;
+
+      #menu-image {
+        width: 100%;
+        height: 100%;
+        max-width: 800px;
+        object-fit: contain;
+        object-position: center;
+      }
 
       .cs-container {
         display: flex;
@@ -297,11 +267,11 @@ const optimizedImage = await getOptimizedImage(contactImage);
 
   /* Tablet - 700px */
   @media only screen and (min-width: 43.75em) {
-    #cs-contact {
+    #cs-menu {
       #cs-form {
         display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
+        justify-content: center;
+        align-items: center;
         flex-wrap: wrap;
         flex-direction: row;
         label {
@@ -317,12 +287,12 @@ const optimizedImage = await getOptimizedImage(contactImage);
 
   /* Small Desktop - 1024px */
   @media only screen and (min-width: 64em) {
-    #cs-contact {
+    #cs-menu {
       .cs-container {
         max-width: (1280/16rem);
         display: flex;
-        justify-content: flex-start;
-        align-items: flex-start;
+        justify-content: center;
+        align-items: center;
         flex-direction: row;
         gap: (80/16rem);
       }
@@ -358,7 +328,7 @@ const optimizedImage = await getOptimizedImage(contactImage);
 
   /* Small Desktop - 1300px */
   @media only screen and (min-width: 81.25em) {
-    #cs-contact {
+    #cs-menu {
       #cs-form {
         column-gap: (0/16rem);
         label {
@@ -380,7 +350,7 @@ const optimizedImage = await getOptimizedImage(contactImage);
   /* Dark Mode */
   @media only screen and (min-width: 0em) {
     body.dark-mode {
-      #cs-contact {
+      #cs-menu {
         .cs-text,
         .cs-title {
           color: var(--bodyTextColorWhite);
