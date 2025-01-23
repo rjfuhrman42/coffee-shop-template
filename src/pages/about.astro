@@ -4,24 +4,21 @@ import CTA from "../components/CTA.astro";
 import Landing from "../components/Landing.astro";
 
 // Optimize our landing image and pass it as props to the BaseLayout (for preloading) and Landing (for rendering)
-import {getOptimizedImage} from "../js/utils"
-import landingImage from "../assets/images/cabinets2.jpg" // <-- THE PATH TO THE ASSET YOU WANT TO PRELOAD - The asset must live in src
-const optimizedImage = await getOptimizedImage(landingImage)
+import { getOptimizedImage } from "../js/utils";
+import landingImage from "../assets/images/landing.webp"; // <-- THE PATH TO THE ASSET YOU WANT TO PRELOAD - The asset must live in src
+const optimizedImage = await getOptimizedImage(landingImage);
 ---
 
 <BaseLayout
   title="About"
   description="Meta description for the page"
-  preloadedImage = {optimizedImage}
+  preloadedImage={optimizedImage}
 >
   <!-- ============================================ -->
   <!--                    LANDING                   -->
   <!-- ============================================ -->
 
-  <Landing 
-    title="About Us"
-    image={optimizedImage}
-  />
+  <Landing title="About Us" image={optimizedImage} />
 
   <!-- ============================================ -->
   <!--                 Side By Side                 -->
@@ -38,12 +35,12 @@ const optimizedImage = await getOptimizedImage(landingImage)
           />
           <source
             media="(min-width: 601px)"
-            srcset="/assets/images/cabinets2.jpg"
+            srcset="/assets/images/landing.webp"
           />
           <img
             aria-hidden="true"
             decoding="async"
-            src="/assets/images/cabinets2.jpg"
+            src="/assets/images/landing.webp"
             alt="cabinets"
             loading="lazy"
             width="400"
@@ -53,16 +50,16 @@ const optimizedImage = await getOptimizedImage(landingImage)
         <picture class="cs-picture cs-picture2">
           <source
             media="(max-width: 600px)"
-            srcset="/assets/images/construction-m.jpg"
+            srcset="/assets/images/baristas.webp"
           />
           <source
             media="(min-width: 601px)"
-            srcset="/assets/images/construction.jpg"
+            srcset="/assets/images/baristas.webp"
           />
           <img
             aria-hidden="true"
             decoding="async"
-            src="/assets/images/construction.jpg"
+            src="/assets/images/baristas.webp"
             alt="house"
             loading="lazy"
             width="400"
@@ -72,8 +69,8 @@ const optimizedImage = await getOptimizedImage(landingImage)
       </div>
       <!-- Right Content Section-->
       <div class="cs-right">
-        <span class="cs-topper">About Us</span>
-        <h2 class="cs-title">About Company Title</h2>
+        <span class="cs-topper">Your local coffee shop</span>
+        <h2 class="cs-title">About Robusta Coffee</h2>
         <p class="cs-text">
           In consequat tincidunt turpis sit amet imperdiet. Praesent Class
           officelan nonatoureanor mauris laoreet, iaculis libero quis. Curabitur
@@ -107,7 +104,6 @@ const optimizedImage = await getOptimizedImage(landingImage)
       </div>
     </div>
   </section>
-  <CTA />
 </BaseLayout>
 
 <style lang="less">
