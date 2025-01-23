@@ -3,7 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 // Optimize our landing image and pass it as props to the BaseLayout (for preloading) and Landing (for rendering)
 import { getOptimizedImage } from "../js/utils";
-import landingImage from "../assets/images/landing.jpg"; // <-- THE PATH TO THE ASSET YOU WANT TO PRELOAD - The asset must live in src
+import landingImage from "../assets/images/landing.webp"; // <-- THE PATH TO THE ASSET YOU WANT TO PRELOAD - The asset must live in src
 const optimizedImage = await getOptimizedImage(landingImage);
 ---
 
@@ -34,7 +34,7 @@ const optimizedImage = await getOptimizedImage(landingImage);
         media="(max-width: 600px)"
         srcset="/assets/images/landing-m.webp"
       />
-      <source media="(min-width: 601px)" srcset="/assets/images/landing.jpg" />
+      <source media="(min-width: 601px)" srcset="/assets/images/landing.webp" />
       <img
         aria-hidden="true"
         decoding="async"
@@ -277,7 +277,7 @@ const optimizedImage = await getOptimizedImage(landingImage);
   /* Desktop Parallax Effect - 1300px */
   @media only screen and (min-width: 81.25em) {
     #hero {
-      background: url("/assets/images/landing.jpg");
+      background: url("/assets/images/landing.webp");
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;

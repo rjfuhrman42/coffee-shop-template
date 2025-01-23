@@ -7,6 +7,7 @@ import { getOptimizedImage } from "../js/utils";
 import landingImage from "../assets/images/cabinets2.jpg"; // <-- THE PATH TO THE ASSET YOU WANT TO PRELOAD - The asset must live in src
 import { Picture } from "astro:assets";
 import contactImage from "../assets/images/contact.webp";
+import Landing from "../components/Landing.astro";
 const optimizedImage = await getOptimizedImage(landingImage);
 ---
 
@@ -15,6 +16,7 @@ const optimizedImage = await getOptimizedImage(landingImage);
   description="Meta description for the page"
   preloadedImage={optimizedImage}
 >
+  <Landing title="Contact Us" image={optimizedImage} />
   <!-- ============================================ -->
   <!--                Contact Form                  -->
   <!-- ============================================ -->
@@ -22,7 +24,6 @@ const optimizedImage = await getOptimizedImage(landingImage);
   <section id="cs-contact">
     <div class="cs-container">
       <div class="cs-left-section">
-        <h2 class="cs-title">Contact us</h2>
         <!--Email-->
         <span class="cs-header">Email</span>
         <a class="cs-link" href={`mailto:${client.email}`}>{client.email}</a>
