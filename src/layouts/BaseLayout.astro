@@ -4,6 +4,7 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import "../styles/root.less";
 import "../styles/dark.less";
+import "@fontsource-variable/karla";
 
 // Receiving and destructuring props from the .astro pages
 const { description, title, preloadedImage } = Astro.props;
@@ -18,9 +19,12 @@ const { description, title, preloadedImage } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <meta name="keywords" content="" />
-    <link rel="canonical" href={`https://${client.domain}${Astro.url.pathname}`} />
+    <link
+      rel="canonical"
+      href={`https://${client.domain}${Astro.url.pathname}`}
+    />
     <link rel="sitemap" href="/sitemap-index.xml" />
-    
+
     <!-- Preloads the image passed as a prop -->
     <link rel="preload" href={preloadedImage.src} as="image" />
 
@@ -28,17 +32,37 @@ const { description, title, preloadedImage } = Astro.props;
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={`https://${client.domain}${Astro.url.pathname}`} />
+    <meta
+      property="og:url"
+      content={`https://${client.domain}${Astro.url.pathname}`}
+    />
     <meta property="og:image" content="/assets/images/logo-small.png" />
-    <meta property="og:image:secure_url" content="/assets/images/logo-small.png" />
+    <meta
+      property="og:image:secure_url"
+      content="/assets/images/logo-small.png"
+    />
 
     <!--Favicons-->
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/favicon-32x32.png?v1">
-    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicons/favicon-16x16.png">
-    <link rel="manifest" href="/assets/favicons/site.webmanifest">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="theme-color" content="#ffffff">
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/assets/favicons/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/assets/favicons/favicon-32x32.png?v1"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/assets/favicons/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/assets/favicons/site.webmanifest" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
 
     <!--For home page, use service keywords for the title, including location for SEO.
     Other pages should just include the page name.
@@ -68,7 +92,9 @@ const { description, title, preloadedImage } = Astro.props;
 
   <body>
     <!--Screen reader skip main nav-->
-    <a class="skip" aria-label="skip to main content" href="#main">Click To Skip To Main Content</a>
+    <a class="skip" aria-label="skip to main content" href="#main"
+      >Click To Skip To Main Content</a
+    >
 
     <Header />
     <main id="main">
@@ -113,5 +139,4 @@ const { description, title, preloadedImage } = Astro.props;
   }
 
   setTheme();
-
 </script>
